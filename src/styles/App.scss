@@ -1,0 +1,117 @@
+$mainColor: #324960;
+$hoverColor: skyblue;
+
+.App {
+  width: 1050px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: $mainColor;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.spinner {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+
+.pagination {
+  display: flex;
+  height: 50px;
+
+  &__button {
+    display: flex;
+    height: 40px;
+    outline: none;
+    width: 80px;
+    font-size: 0.8em;
+    font-family: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightgrey;
+    border-left: none;
+
+    &_prev {
+      border-left: 1px solid lightgrey;
+    }
+
+    &_active {
+      background-color: $mainColor;
+      color: #fff;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+      background-color: $hoverColor;
+    }
+
+    &_disabled {
+      cursor: auto;
+      background-color: lightgrey;
+      color: #fff;
+
+      &:hover {
+        @extend .pagination__button_disabled;
+      }
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 20px auto;
+
+  &__cell {
+    padding: 10px;
+    font-size: 0.8em;
+    min-width: 55px;
+    text-align: center;
+
+    &_desc {
+      text-align: start;
+    }
+  }
+
+  &__row {
+    height: 50px;
+
+    &:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+
+    &:nth-child(odd) {
+      background-color: #fff;
+    }
+  }
+
+  &__head-cell {
+    @extend .table__cell;
+    color: #fff;
+    background: $mainColor;
+    text-transform: uppercase;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 40vh;
+  font-size: 1.5em;
+}
